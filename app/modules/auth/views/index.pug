@@ -1,0 +1,345 @@
+extends ../../../templates/master.pug
+
+block body
+    //--Stylesheets, scripts, etc..--//
+    <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/jquery/jquery-3.2.1.slim.min.js"></script>
+    <script src="/assets/popper/popper.min.js"></script>
+    <link href="/stylesheets/home.css" rel="stylesheet">
+
+    <title>Irregular Please!</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    //- <!-- Favicons -->
+    <link href="/homepage/img/logo.jpeg" rel="icon">
+    <link href="/homepage/img/logo.jpeg" rel="icon2">
+
+    //- <!-- Google Fonts -->
+    <link href="/homepage/css/googlefonts.css" rel="stylesheet">
+
+    //- <!-- Bootstrap CSS File -->
+    //- <link href="/homepage/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    //- <!-- Libraries CSS Files -->
+    <link href="/homepage/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/homepage/lib/animate/animate.min.css" rel="stylesheet">
+
+    //- <!-- Main Stylesheet File -->
+    <link href="/homepage/css/style.css" rel="stylesheet">
+
+    //- <!--==========================
+    //- Header
+    //- ============================-->
+    <header id="header">
+        <div class="container"> 
+        <nav id="nav-menu-container">
+            <ul class="nav-menu">
+            <div id="logo" class="pull-left">
+                <a href="/home" id ="homelogo"><img src="/homepage/img/logo.jpeg" alt="logo" title="Logo" style="border-radius:50%;height:6%;width:6%;" /></img>  Irregular Please</a>
+            </div>
+            <li style="color:transparent;">Hidden1</li>
+            <li class="menu-active"><a href="/home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#portfolio" data-toggle="modal" data-target="#myModal">Login</a></li>
+            <li><a href="/signup">Signup</a></li>
+            <li></li>
+            <li></li>
+            <li style="color:transparent;">Hidden2</li>
+            </ul>
+        </nav><!-- #nav-menu-container -->
+        </div>
+    </header><!-- #header -->
+
+    //- <!--==========================
+    //-     Hero Section
+    //- ============================-->
+    <section id="hero">
+        <div class="hero-container wow fadeInUp">
+        <h1>Hello there!</h1>
+        <h2>Irregular Please! Made by students, for students.</h2>
+        <a href="#facts" class="btn-get-started">Get Started</a>
+        </div>
+    </section><!-- #hero -->
+
+    <main id="main">
+
+        //- <!--==========================
+        //- Facts Section
+        //- ============================-->
+        <section id="facts">
+        <div class="container wow fadeInLeft">
+            <div class="section-header">
+            <h3 class="section-title">Did you know that?</h3>
+            <p class="section-description">In Polytechnic University of the Philippines Sta.Mesa Branch there are almost:</p>
+            </div>
+            <div class="row counters">
+                <div class="col-lg-3 col-6 text-center">
+                    <span data-toggle="counter-up">40,000</span>
+                    <p>Students</p>
+                </div>
+
+                <div class="col-lg-3 col-6 text-center">
+                    <span data-toggle="counter-up">1,500</span>
+                    <p>Professors</p>
+                </div>
+
+                <div class="col-lg-3 col-6 text-center">
+                    <span data-toggle="counter-up">300</span>
+                    <p>Rooms</p>
+                </div>
+
+                <div class="col-lg-3 col-6 text-center">
+                    <span data-toggle="counter-up">8,000</span>
+                    <p>Irregular Students</p>
+                </div>
+
+            </div>
+
+        </div>
+        </section><!-- #facts -->
+
+        //- <!--==========================
+        //- Services Section
+        //- ============================-->
+        <section id="features">
+        <div class="container wow fadeIn">
+            <div class="section-header">
+            <h3 class="section-title">What is Irregular Please?</h3>
+            <p class="section-description">Irregular Please will somehow guide and help you to lessen your worries as a student even if you are an irregular or a regular PUPian.</p>
+            </div>
+            <div class="row">
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="box">
+                <div class="icon"><a href=""><i class="fa fa-desktop"></i></a></div>
+                <h4 class="title"><a href="">Search Schedule</a></h4>
+                <p class="description">You can search your desire schedule you want to enrolled to. By course code, course name, day, and professor.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="box">
+                <div class="icon"><a href=""><i class="fa fa-bar-chart"></i></a></div>
+                <h4 class="title"><a href="">Help as an Organization or Council Member</a></h4>
+                <p class="description">Help other students to ease their manual searching of schedules by creating a schedule they can look into.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                <div class="box">
+                <div class="icon"><a href=""><i class="fa fa-paper-plane"></i></a></div>
+                <h4 class="title"><a href="">Find Petition Mates</a></h4>
+                <p class="description">A student can create a petition or join a petition. (This is not affiliated with the original petition form of PUP)</p>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="box">
+                <div class="icon"><a href=""><i class="fa fa-photo"></i></a></div>
+                <h4 class="title"><a href="">Saved it</a></h4>
+                <p class="description">A student can save the schedule he/she searched for future purposes, like viewing again that specific schedule.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="box">
+                <div class="icon"><a href=""><i class="fa fa-road"></i></a></div>
+                <h4 class="title"><a href="">See Announcements</a></h4>
+                <p class="description">For an organization or student council to made an announcements. For students to view and know those announcements.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                <div class="box">
+                <div class="icon"><a href=""><i class="fa fa-shopping-bag"></i></a></div>
+                <h4 class="title"><a href="">Update Profile</a></h4>
+                <p class="description">A student can edit his/her profile details anytime, anywhere.</p>
+                </div>
+            </div>
+            </div>
+
+        </div>
+        </section><!-- #services -->
+
+        //- <!--==========================
+        //- Call To Action Section
+        //- ============================-->
+        <section id="call-to-action">
+        <div class="container wow fadeIn">
+            <div class="row">
+            <div class="col-lg-9 text-center text-lg-left">
+                <h3 class="cta-title">Don't Hesitate</h3>
+                <p class="cta-text"> As a student if you want to be help to ease finding your desire schedule to enrolled to. As a member of an organization or student council who wants to help their fellow schoolmates.</p>
+            </div>
+            <div class="col-lg-3 cta-btn-container text-center wow fadeInRight">
+                <a class="cta-btn align-middle" href="/signup">Sign Up</a>
+            </div>
+            </div>
+
+        </div>
+        </section><!-- #call-to-action -->
+
+
+        //- <!--==========================
+        //- Team Section
+        //- ============================-->
+        <section id="team">
+        <div class="container wow fadeInUp">
+            <div class="section-header">
+            <h3 class="section-title">Our Team</h3>
+            <p class="section-description">People behind this project.</p>
+            </div>
+            <div class="row wow fadeInUp">
+            <div class="col-lg-3 col-md-6">
+                <div class="member">
+                <div class="pic"><img src="/homepage/img/team-1.jpg" alt=""></div>
+                <h4>Jillmarie G. Inocencio</h4>
+                <span>Project Leader</span>
+                <div class="social">
+                    <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href=""><i class="fa fa-facebook"></i></a>
+                    <a href=""><i class="fa fa-google-plus"></i></a>
+                    <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="member">
+                <div class="pic"><img src="/homepage/img/team-2.jpg" alt=""></div>
+                <h4>Maricar D. Oriel</h4>
+                <span>Database Administrator</span>
+                <div class="social">
+                    <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href=""><i class="fa fa-facebook"></i></a>
+                    <a href=""><i class="fa fa-google-plus"></i></a>
+                    <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="member">
+                <div class="pic"><img src="/homepage/img/team-3.jpg" alt=""></div>
+                <h4>Jenhel Keeanu A. Santos</h4>
+                <span>Mobile App Developer</span>
+                <div class="social">
+                    <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href=""><i class="fa fa-facebook"></i></a>
+                    <a href=""><i class="fa fa-google-plus"></i></a>
+                    <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="member">
+                <div class="pic"><img src="/homepage/img/team-4.jpg" alt=""></div>
+                <h4>Abigale P. Del Rosario</h4>
+                <span>Web App Developer </span>
+                <div class="social">
+                    <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href=""><i class="fa fa-facebook"></i></a>
+                    <a href=""><i class="fa fa-google-plus"></i></a>
+                    <a href=""><i class="fa fa-linkedin"></i></a>
+                </div>
+                </div>
+            </div>
+            </div>
+
+        </div>
+        </section><!-- #team -->
+
+
+
+    </main>
+
+    //- <!--==========================
+    //-     Footer
+    //- ============================-->
+    <footer id="footer">
+        <div class="footer-top">
+          <div class="container">
+
+          </div>
+        </div>
+
+        <div class="container">
+        <div class="copyright"> Copyright <strong>Regna</strong>. All Rights Reserved
+        </div>
+      
+        </div> 
+        </div>
+    </footer><!-- #footer -->
+
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    //- <!-- JavaScript Libraries -->
+    <script src="/homepage/lib/jquery/jquery.min.js"></script>
+    <script src="/homepage/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="/homepage/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/homepage/lib/easing/easing.min.js"></script>
+    <script src="/homepage/lib/wow/wow.min.js"></script>
+
+    <script src="/homepage/lib/waypoints/waypoints.min.js"></script>
+    <script src="/homepage/lib/counterup/counterup.min.js"></script>
+    <script src="/homepage/lib/superfish/hoverIntent.js"></script>
+    <script src="/homepage/lib/superfish/superfish.min.js"></script>
+
+    //- <!-- Template Main Javascript File -->
+    <script src="/homepage/js/main.js"></script>
+
+    //- Modal in Homepage
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="filter: opacity(88%);">
+            <div class="modal-content">
+                <div class="modal-header">
+                <img rel="image" src="/icons/login.png" style="width:40px;height:40px;">&nbsp;
+                <h4 style="color:black;">Login: Student</h4>
+                <button type="button" class="close" data-dismiss="modal">x</button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action='home' name="login_form">
+                    <div class="form-group">
+                    <p>&nbsp;<i class="fa fa-id-card fa-2x" aria-hidden="true" ></i>&nbsp;&nbsp;<input type="text" name="user_studno" id="modalstudno" class="form-control float-right col-md-10" placeholder="Student No(ex:2015-12345-MN-1)" required></p>
+                    </div>
+                    <p>&nbsp;&nbsp; <i class="fa fa-unlock-alt fa-2x" aria-hidden="true"></i>&nbsp; &nbsp;<input type="password" name="user_password" id="modalemail" class="form-control float-right col-md-10" placeholder="Password" size=33 required></p>
+                    <p><button type="submit" id="modalbutton" class="btn btn-primary float-right" position="right" style="background-color:#B22222;color:whitesmoke;border:none;">Sign in</button></p>
+                </form>
+            </br>
+            </br>
+            </div>
+            <div class="modal-footer float-right">Log in as: <a href="#" class="Register" style="color:#B22222;" data-toggle="modal" data-dismiss="modal" data-target="#myModal1"> Office Staff</a>
+            </div>  
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    //- Modal in Homepage Office Staff
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog" style="filter: opacity(88%);">
+            <div class="modal-content">
+                <div class="modal-header">
+                <img rel="image" src="/icons/login.png" style="width:40px;height:40px;">&nbsp;
+                <h4 style="color:black;">Login: Staff</h4>
+                <button type="button" class="close" data-dismiss="modal">x</button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action='office' name="login_form_staff">
+                    <div class="form-group">
+                    <p>&nbsp;<i class="fa fa-id-card fa-2x" aria-hidden="true" ></i>&nbsp;&nbsp;<input type="text" name="college_email"class="form-control float-right col-md-10" placeholder="Email (ex:abc@gmail.com)" required></p>
+                    </div>
+                    <p>&nbsp;&nbsp; <i class="fa fa-unlock-alt fa-2x" aria-hidden="true"></i>&nbsp; &nbsp;<input type="password" name="user_password" class="form-control float-right col-md-10" placeholder="Password" size=33 required></p>
+                    <p><button type="submit" id="modalbutton1" class="btn btn-primary float-right" position="right" style="background-color:#B22222;color:whitesmoke;border:none;">Sign in</button></p>
+                </form>
+            </br>
+            </br>
+            </div>
+            <div class="modal-footer float-right">Log in as: <a href="#" class="Register" style="color:#B22222;" data-toggle="modal" data-dismiss="modal" data-target="#myModal"> Student</a>
+            </div>  
+                </div>
+                
+            </div>
+        </div>
+    </div>

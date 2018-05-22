@@ -1,0 +1,30 @@
+@font-face{ 
+    font-family: myFrostys; 
+    src: url("/fonts/Frostys.ttf");
+} 
+@font-face{ 
+    font-family: myAcid; 
+    src: url("/fonts/Acid.ttf");
+} 
+@font-face{ 
+    font-family: myElegantLight; 
+    src: url("/fonts/ElegantLight.ttf");
+}
+
+.buttonactions{
+    color: #B22222;
+}
+.buttonactions:hover{
+    color: yellow;
+}
+
+#requeststable{
+    font-size: 15;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-color: #B22222;
+}
+
+#liststable{
+    font-size: 15;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

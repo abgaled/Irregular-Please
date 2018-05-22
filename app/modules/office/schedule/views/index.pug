@@ -1,0 +1,167 @@
+extends ../../home/views/navbar.pug
+
+block content
+    
+    <div class="content-wrapper">
+        <div class="container-fluid">
+        <!-- Example DataTables Card-->
+        <div class="card mb-3">
+            <div class="card-header">
+            <i class="fa fa-list-ul"></i> Schedules
+            <button type="button" class="btn btn-outline-primary waves-effect float-right" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-square "></i> Add</button>
+            </div>
+            <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                    <th>Schedule ID</th>
+                    <th>Subject Code</th>
+                    <th>Subject Name</th>
+                    <th>Days</th>
+                    <th>Time</th>
+                    <th>Room</th>
+                    <th>Professor</th>
+                    <th>Created by</th>
+                    <th>Actions</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                    <th>Schedule ID</th>
+                    <th>Subject Code</th>
+                    <th>Subject Name</th>
+                    <th>Days</th>
+                    <th>Time</th>
+                    <th>Room</th>
+                    <th>Professor</th>
+                    <th>Created by</th>
+                    <th>Actions</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                each sched in tbl_sched
+                    <tr>
+                    <td>
+                        value=sched.int_schedID
+                    </td>
+                    <td>
+                        value=sched.char_courseCode
+                    </td>
+                    <td>
+                        value=sched.varchar_courseName
+                    </td>
+                    <td>
+                        value=sched.varchar_schedDay
+                    </td>
+                    <td>
+                        value=sched.varchar_schedTime
+                    </td>
+                    <td>
+                        value=sched.varchar_schedRoom
+                    </td>
+                    <td>    
+                        value=sched.varchar_schedProf
+                    </td>
+                    <td>    
+                        value=sched.varchar_collegeName
+                    </td>
+                    <td>
+                        a(href=`/office/schedule/${sched.int_schedID}/editsched` id="editsched"): span.fa.fa-edit Edit
+                    </td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+        </div>
+        <!-- /.container-fluid-->
+        <!-- /.content-wrapper-->
+        <footer class="sticky-footer">
+        <div class="container">
+            <div class="text-center">
+            <small>Copyright © Irregular Please 2018</small>
+            </div>
+        </div>
+        </footer>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+        </a>
+        <!-- Bootstrap core JavaScript-->
+        <script src="/adminui/vendor/jquery/jquery.min.js"></script>
+        <script src="/adminui/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="/adminui/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Page level plugin JavaScript-->
+        <script src="/adminui/vendor/chart.js/Chart.min.js"></script>
+        <script src="/adminui/vendor/datatables/jquery.dataTables.js"></script>
+        <script src="/adminui/vendor/datatables/dataTables.bootstrap4.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="/adminui/js/sb-admin.min.js"></script>
+        <!-- Custom scripts for this page-->
+        <script src="/adminui/js/sb-admin-datatables.min.js"></script>
+        <script src="/adminui/js/sb-admin-charts.min.js"></script>
+    </div>
+    </body>
+
+    
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="lineModalLabel">Add Schedule:</h3>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                </div>
+                <div class="modal-body">
+                    
+        
+                    <form method="POST" action="/office/schedule/addschedule">
+                        input(type="hidden" name="userid" value=`${user.int_userID}`)
+                    <div class="row">
+                    <div class="form-group col-7">
+                        <label for="addcoursecode">Subject Code</label>
+                        input(type="text" class="form-control" id="addcoursecode" placeholder="(ex. MATH3042)" name="sched_code")
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="addschedday">Day</label><br>
+                        <input type="checkbox" name="sched_days" value="MON"> Monday<br>
+                        <input type="checkbox" name="sched_days" value="TUE"> Tuesday<br>
+                        <input type="checkbox" name="sched_days" value="WED"> Wednesday<br>
+                        <input type="checkbox" name="sched_days" value="THU"> Thursday<br>
+                        <input type="checkbox" name="sched_days" value="FRI"> Friday<br>
+                        <input type="checkbox" name="sched_days" value="SAT"> Saturday<br>
+                        <input type="checkbox" name="sched_days" value="SUN"> Sunday<br>
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="addtime">Time</label>
+                        input(type="text" class="form-control" id="addtime" placeholder="(ex:12:00PM-2:00PM)" name="sched_time")
+                    </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="addroom">Room</label>
+                        input(type="text" class="form-control" id="addroom" placeholder="(ex:E412,S510)" name="sched_room")
+                    </div>
+                    <div class="form-group">
+                        <label for="addprof">Professor</label>
+                        input(type="text" class="form-control" id="addprof" placeholder="Professor(ex:Prof.Snape)" name="sched_prof")
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-default float-right" id="buttoneditprofile">Submit</button>
+                    
+                    </form>
+
+                </div>
+                
+            </div>
+        </div>
+        </div>
+
+        script.
+            $('input[type=checkbox]').on('change', function (e) {
+                if ($('input[type=checkbox]:checked').length > 3) {
+                    $(this).prop('checked', false);
+                    alert("This option allows only 3 checkbox to be selected.");
+                }
+            });

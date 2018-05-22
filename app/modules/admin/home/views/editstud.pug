@@ -1,0 +1,83 @@
+extends ../../home/views/index.pug
+
+block content
+   
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            each result in result_stud 
+                h4 Update:
+                    value=" "+result.varchar_userLName
+                    value=", "+result.varchar_userFName
+
+                <form method="POST" action="editstudent">
+                    <hr>
+                    <div class = "row">
+                    <div class="form-group col-6">
+                            <label for="editfname">Student Number</label>
+                            input(type="text" class="form-control" id="editfname" placeholder="(ex. 2015-12345-MN-0)" value=`${result.char_userStudNo}` name="user_studno" required)
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="editfname">First Name</label>
+                            input(type="text" class="form-control" id="editfname" placeholder="(ex. Blaster)" value=`${result.varchar_userFName}` name="user_fname" required)
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="editlname">Last Name</label>
+                            input(type="text" class="form-control" id="editlname" placeholder="(ex. Silonga)" name="user_lname" value=`${result.varchar_userLName}` required)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="editemail">Email Address</label>
+                            input(type="email" class="form-control" id="editemail" placeholder="(ex. ccis@gmail.com)" value=`${result.varchar_userEmailAdd}` name="user_email" required)
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="editpass">Password</label>
+                            input(type="password" class="form-control" id="editpass" placeholder="Password" name="user_password" value=`${result.varchar_collegePassword}` required)
+                        </div>
+                    </div>
+                    <div class = "row">
+                    <div class="form-group col-6">
+                            <label for="editaddress">Address</label>
+                            input(type="text" class="form-control" id="editaddress" placeholder="(ex. 13D Ahon St. Brgy. Angat)" value=`${result.varchar_userAddress}` name="user_address" required)
+                    </div>
+                    </div>
+                    <button type="submit" class="btn btn-default float-right" id="buttoneditprofile">Submit</button>
+                </div>
+        </div>
+        </div>
+        <!-- /.container-fluid-->
+        <!-- /.content-wrapper-->
+        <footer class="sticky-footer">
+        <div class="container">
+            <div class="text-center">
+            <small>Copyright © Irregular Please 2018</small>
+            </div>
+        </div>
+        </footer>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+        </a>
+        <!-- Bootstrap core JavaScript-->
+        <script src="/adminui/vendor/jquery/jquery.min.js"></script>
+        <script src="/adminui/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="/adminui/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Page level plugin JavaScript-->
+        <script src="/adminui/vendor/chart.js/Chart.min.js"></script>
+        <script src="/adminui/vendor/datatables/jquery.dataTables.js"></script>
+        <script src="/adminui/vendor/datatables/dataTables.bootstrap4.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="/adminui/js/sb-admin.min.js"></script>
+        <!-- Custom scripts for this page-->
+        <script src="/adminui/js/sb-admin-datatables.min.js"></script>
+        <script src="/adminui/js/sb-admin-charts.min.js"></script>
+    </div>
+    </body>
+
+
+       
+
+        

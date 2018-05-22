@@ -1,0 +1,151 @@
+extends ./navbar.pug
+
+block content
+    
+    <div class="content-wrapper">
+        <div class="container-fluid">
+        <!-- Example DataTables Card-->
+        <div class="card mb-3">
+            <div class="card-header">
+            <i class="fa fa-list-ul"></i> List of Students</div>
+            <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                    <th>Student ID</th>
+                    <th>Student No.</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Password</th>
+                    <th>Email Address</th>
+                    <th>Address</th>
+                    <th>Actions</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                    <th>Student ID</th>
+                    <th>Student No.</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Password</th>
+                    <th>Email Address</th>
+                    <th>Address</th>
+                    <th>Actions</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                each stud in tbl_students
+                    <tr>
+                    <td>
+                        value=stud.int_userID
+                    </td>
+                    <td>
+                        value=stud.char_userStudNo
+                    </td>
+                    <td>
+                        value=stud.varchar_userFName
+                    </td>
+                    <td>
+                        value=stud.varchar_userLName
+                    </td>
+                    <td>
+                        value=stud.varchar_userPassword
+                    </td>
+                    <td>
+                        value=stud.varchar_userEmailAdd
+                    </td>
+                    <td>    
+                        value=stud.varchar_userAddress
+                    </td>
+                    <td>
+                        a(href=`/admin/${stud.int_userID}/editstudent` id="editstud"): span.fa.fa-edit Edit
+                    </td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+        </div>
+        <!-- /.container-fluid-->
+        <!-- /.content-wrapper-->
+        <footer class="sticky-footer">
+        <div class="container">
+            <div class="text-center">
+            <small>Copyright © Irregular Please 2018</small>
+            </div>
+        </div>
+        </footer>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+        </a>
+        <!-- Bootstrap core JavaScript-->
+        <script src="/adminui/vendor/jquery/jquery.min.js"></script>
+        <script src="/adminui/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="/adminui/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Page level plugin JavaScript-->
+        <script src="/adminui/vendor/chart.js/Chart.min.js"></script>
+        <script src="/adminui/vendor/datatables/jquery.dataTables.js"></script>
+        <script src="/adminui/vendor/datatables/dataTables.bootstrap4.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="/adminui/js/sb-admin.min.js"></script>
+        <!-- Custom scripts for this page-->
+        <script src="/adminui/js/sb-admin-datatables.min.js"></script>
+        <script src="/adminui/js/sb-admin-charts.min.js"></script>
+    </div>
+    </body>
+
+    //- script.
+    //-     $(document).ready(function(){
+    //-         $('#editstud').click(function(){
+    //-             var studid=$(this).attr('value');
+    //-             $('#studentID').val(studid);
+                
+    //-         });
+    //-     });
+
+    //- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    //-     <div class="modal-dialog">
+    //-         <div class="modal-content">
+    //-             <div class="modal-header">
+    //-                 <h3 class="modal-title" id="lineModalLabel">Edit Student Profile:</h3>
+    //-                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+    //-             </div>
+    //-             <div class="modal-body">
+    //-             //- document.getElementById("output").innerHTML=studentID
+    //-             //- <input id="studentID" value="">
+    //-             <form method="POST" action="admin/editstudent">
+    //-                     input(type="hidden" name="int_userID" id="studentID" value="")
+    //-                     <div class="row">
+    //-                     <div class="form-group col-6">
+    //-                         <label for="editfname">First Name</label>
+    //-                         input(type="text" class="form-control" id="editfname" placeholder="First Name" name="user_fname" required)
+    //-                     </div>
+    //-                     </div>
+    //-                     <div class="form-group">
+    //-                         <label for="editlname">Last Name</label>
+    //-                         input(type="text" class="form-control" id="editlname" placeholder="Last Name" name="user_lname" required)
+    //-                     </div>
+    //-                     <label for="editpass">Password</label>
+    //-                     <div class="row">
+    //-                     <div class="form-group col-9">
+    //-                         input(type="password" class="form-control" id="editpass" placeholder="Password" name="user_password" required)
+    //-                     </div>
+    //-                     <div class="form-group">
+    //-                         <label for="editemail">Email Address</label>
+    //-                         input(type="email" class="form-control" id="editemail" placeholder="Email Address" name="user_email" required)
+    //-                     </div>
+    //-                     <div class="form-group">
+    //-                         <label for="editaddress">Address</label>
+    //-                         input(type="text" class="form-control" id="editaddress" placeholder="Address" name="user_address" required)
+    //-                     </div>
+    //-                     <hr>
+    //-                     <button type="submit" class="btn btn-default float-right" id="buttoneditprofile">Submit</button>
+                        
+    //-                     </form>
+    //-             </div>
+    //-         </div>

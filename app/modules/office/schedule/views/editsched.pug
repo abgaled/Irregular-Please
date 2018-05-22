@@ -1,0 +1,77 @@
+extends ../../home/views/index.pug
+
+block content
+   
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            each result in result_stud 
+                h4 Update:
+                    value=" "+result.char_courseCode
+
+                <form method="POST" action="editsched">
+                    <hr>
+                    <div class = "row">
+                    <div class="form-group col-6">
+                            <label for="editsubjcode">Subject Code</label>
+                            input(type="text" class="form-control" id="editsubjcode" placeholder="(ex. COMP4083)" value=`${result.char_courseCode}` name="sched_subjcode" required)
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="editday">Day/s</label>
+                            input(type="text" class="form-control" id="editday" placeholder="(ex. M,T,S)" value=`${result.varchar_schedDay}` name="sched_day" required)
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="editlname">Time</label>
+                            input(type="text" class="form-control" id="edittime" placeholder="(ex. 3:00PM-6:00PM)" name="sched_time" value=`${result.varchar_schedTime}` required)
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="editemail">Room</label>
+                            input(type="text" class="form-control" id="editroom" placeholder="(ex. N506)" value=`${result.varchar_schedRoom}` name="sched_room" required)
+                        </div>
+                        <div class="form-group col-6">
+                            <label for="editpass">Professor</label>
+                            input(type="text" class="form-control" id="editprof" placeholder="(ex. Prof. Salonga)" name="sched_prof" value=`${result.varchar_schedProf}` required)
+                        </div>
+                    </div>
+                    </div>
+                    <button type="submit" class="btn btn-default float-right" id="buttoneditprofile">Submit</button>
+                </div>
+        </div>
+        </div>
+        <!-- /.container-fluid-->
+        <!-- /.content-wrapper-->
+        <footer class="sticky-footer">
+        <div class="container">
+            <div class="text-center">
+            <small>Copyright © Irregular Please 2018</small>
+            </div>
+        </div>
+        </footer>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+        </a>
+        <!-- Bootstrap core JavaScript-->
+        <script src="/adminui/vendor/jquery/jquery.min.js"></script>
+        <script src="/adminui/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="/adminui/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Page level plugin JavaScript-->
+        <script src="/adminui/vendor/chart.js/Chart.min.js"></script>
+        <script src="/adminui/vendor/datatables/jquery.dataTables.js"></script>
+        <script src="/adminui/vendor/datatables/dataTables.bootstrap4.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="/adminui/js/sb-admin.min.js"></script>
+        <!-- Custom scripts for this page-->
+        <script src="/adminui/js/sb-admin-datatables.min.js"></script>
+        <script src="/adminui/js/sb-admin-charts.min.js"></script>
+    </div>
+    </body>
+
+
+       
+
+        

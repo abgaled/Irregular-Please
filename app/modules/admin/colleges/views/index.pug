@@ -1,0 +1,97 @@
+extends ../../home/views/index.pug
+
+block content
+   
+    <div class="content-wrapper">
+        <div class="container-fluid">
+        <!-- Example DataTables Card-->
+        <div class="card mb-3">
+            <div class="card-header">
+            <i class="fa fa-list-ul"></i> List of Colleges</div>
+            <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                    <th>College ID</th>
+                    <th>College Name</th>
+                    <th>Email Address</th>
+                    <th>Password</th>
+                    <th>Actions</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                    <th>College ID</th>
+                    <th>College Name</th>
+                    <th>Email Address</th>
+                    <th>Password</th>
+                    <th>Actions</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                each college in tbl_college
+                    <tr>
+                    <td>
+                        value=college.int_collegeID
+                    </td>
+                    <td>
+                        value=college.varchar_collegeName
+                    </td>
+                    <td>
+                        value=college.varchar_collegeEmail
+                    </td>
+                    <td>
+                        value=college.varchar_collegePassword
+                    </td>
+                    <td>
+                    a(href=`/admin/colleges/${college.int_collegeID}/edit`): span.fa.fa-edit Update
+                    <hr>
+                    a(href=`/admin/colleges/${college.int_collegeID}/sendemail`): span.fa.fa-envelope Send Details
+                    </td>
+                    </tr>
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+        </div>
+        
+        <!-- /.container-fluid-->
+        <!-- /.content-wrapper-->
+                    
+        <footer class="sticky-footer">
+        <div class="container">
+            <div class="text-center">
+            <small>Copyright © Irregular Please 2018</small>
+            </div>
+        </div>
+        </footer>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+        </a>
+        <!-- Bootstrap core JavaScript-->
+        <script src="/adminui/vendor/jquery/jquery.min.js"></script>
+        <script src="/adminui/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="/adminui/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Page level plugin JavaScript-->
+        <script src="/adminui/vendor/chart.js/Chart.min.js"></script>
+        <script src="/adminui/vendor/datatables/jquery.dataTables.js"></script>
+        <script src="/adminui/vendor/datatables/dataTables.bootstrap4.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="/adminui/js/sb-admin.min.js"></script>
+        <!-- Custom scripts for this page-->
+        <script src="/adminui/js/sb-admin-datatables.min.js"></script>
+        <script src="/adminui/js/sb-admin-charts.min.js"></script>
+    </div>
+    </body>
+
+            
+                        
+
+                        
+
+                        

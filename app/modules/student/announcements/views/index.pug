@@ -1,0 +1,60 @@
+extends ../../home/views/navbar.pug
+
+block content
+    <div class="content-wrapper">
+        <div class="container-fluid">
+                <div class="container-fluid">
+                    <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-bullhorn"></i><b> Announcements</b>
+                        </div>
+                    <div class="card-body">
+                        each announcement in tbl_announcement
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        <b>
+                                        value=announcement.varchar_announcementTitle
+                                        </b>
+                                    </div>
+                                    <div class="card-body">
+                                        p(style="text-indent:30px;")
+                                            value=announcement.varchar_announcementText
+                                    </div>
+                                        <div class="card-footer small text-muted">created by:
+                                            value=announcement.varchar_announcementCreated
+                                        </div>
+                                </div>
+                    </div>
+                    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                </div>
+        </div>
+        </div>
+        <!-- /.container-fluid-->
+        <!-- /.content-wrapper-->
+        <footer class="sticky-footer">
+        <div class="container">
+            <div class="text-center">
+            <small>Copyright © Irregular Please 2018</small>
+            </div>
+        </div>
+        </footer>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+        </a>
+        <!-- Bootstrap core JavaScript-->
+        <script src="/adminui/vendor/jquery/jquery.min.js"></script>
+        <script src="/adminui/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="/adminui/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Page level plugin JavaScript-->
+        <script src="/adminui/vendor/chart.js/Chart.min.js"></script>
+        <script src="/adminui/vendor/datatables/jquery.dataTables.js"></script>
+        <script src="/adminui/vendor/datatables/dataTables.bootstrap4.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="/adminui/js/sb-admin.min.js"></script>
+        <!-- Custom scripts for this page-->
+        <script src="/adminui/js/sb-admin-datatables.min.js"></script>
+        <script src="/adminui/js/sb-admin-charts.min.js"></script>
+    </div>
+    </body>

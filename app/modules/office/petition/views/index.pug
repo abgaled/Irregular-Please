@@ -1,0 +1,246 @@
+extends ../../home/views/navbar.pug
+
+block content
+    <div class="content-wrapper">
+        <div class="container-fluid">
+        <!-- Example DataTables Card-->
+        <div class="card mb-3">
+            <div class="card-header">
+            <i class="fa fa-list-ul"></i> List of Petitions
+            </div>
+            <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                        <th>Petition ID</th>
+                        <th>Subject Code</th>
+                        <th>Subject Name</th>
+                        <th>Time</th>
+                        <th>Days</th>
+                        <th>Members</th>
+                        <th>Created by</th>
+                        <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                        <th>Petition ID</th>
+                        <th>Subject Code</th>
+                        <th>Subject Name</th>
+                        <th>Time</th>
+                        <th>Days</th>
+                        <th>Members</th>
+                        <th>Created by</th>
+                        <th>Actions</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                    each petit in tbl_petition
+                        <tr>
+                        <td>
+                            value=petit.int_petitID
+                        </td>
+                        <td>
+                            value=petit.char_subjCode
+                        </td>
+                        <td>
+                            value=petit.varchar_courseName
+                        </td>
+                        <td>
+                            value=petit.varchar_petitTime
+                        </td>
+                        <td>
+                            value=petit.varchar_petitDays
+                        </td>
+                        <td>
+                            value=petit.int_petitMemb
+                        </td>
+                        <td>
+                            value=petit.varchar_userEmailAdd
+                        </td>
+                        <td>
+                            //- input(type="hidden" name="userid" value=`${user.varchar_collegeName}`)
+                            a(href=`/office/petitions/${petit.int_petitID}/approved`): span.fa.fa-thumbs-up Approve
+                            <hr>
+                            a(href=`/office/petitions/${petit.int_petitID}/rejected`): span.fa.fa-thumbs-down Reject
+                        </td>
+                        
+                        </tr>
+
+                </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+
+        <div class="row">
+        <div class="container-fluid">
+        <!-- Example DataTables Card-->
+        <div class="card mb-3">
+            <div class="card-header">
+            <i class="fa fa-list-ul"></i> Approved Petitions
+            </div>
+            <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                        <th>Petition ID</th>
+                        <th>Subject Code</th>
+                        <th>Subject Name</th>
+                        <th>Time</th>
+                        <th>Days</th>
+                        <th>Members</th>
+                        <th>Created by</th>
+                        <th>Reviewed by</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                        <th>Petition ID</th>
+                        <th>Subject Code</th>
+                        <th>Subject Name</th>
+                        <th>Time</th>
+                        <th>Days</th>
+                        <th>Members</th>
+                        <th>Created by</th>
+                        <th>Reviewed by</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                    each appr in approved
+                        <tr>
+                        <td>
+                            value=appr.int_petitID
+                        </td>
+                        <td>
+                            value=appr.char_subjCode
+                            //- input(type="hidden" name="char_subjCode" value=`${appr.char_subjCode}`)
+                        </td>
+                        <td>
+                            value=appr.varchar_courseName
+                        </td>
+                        <td>
+                            value=appr.varchar_petitTime
+                        </td>
+                        <td>
+                            value=appr.varchar_petitDays
+                        </td>
+                        <td>
+                            value=appr.int_petitMemb
+                        </td>
+                        <td>
+                            value=appr.varchar_userEmailAdd
+                        </td>
+                        <td>
+                            value=appr.varchar_reviewedBy
+                        </td>
+                        </tr>
+
+                </tbody>
+                </table>
+            </div>
+            </div>
+
+        <div class="row">
+        <div class="container-fluid">
+        <!-- Example DataTables Card-->
+        <div class="card mb-3">
+            <div class="card-header">
+            <i class="fa fa-list-ul"></i> Rejected Petitions
+            </div>
+            <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                        <th>Petition ID</th>
+                        <th>Subject Code</th>
+                        <th>Subject Name</th>
+                        <th>Time</th>
+                        <th>Days</th>
+                        <th>Members</th>
+                        <th>Created by</th>
+                        <th>Reviewed by</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                        <th>Petition ID</th>
+                        <th>Subject Code</th>
+                        <th>Subject Name</th>
+                        <th>Time</th>
+                        <th>Days</th>
+                        <th>Members</th>
+                        <th>Created by</th>
+                        <th>Reviewed by</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                    each rej in rejected
+                        <tr>
+                        <td>
+                            value=rej.int_petitID
+                        </td>
+                        <td>
+                            value=rej.char_subjCode
+                        </td>
+                        <td>
+                            value=rej.varchar_courseName
+                        </td>
+                        <td>
+                            value=rej.varchar_petitTime
+                        </td>
+                        <td>
+                            value=rej.varchar_petitDays
+                        </td>
+                        <td>
+                            value=rej.int_petitMemb
+                        </td>
+                        <td>
+                            value=rej.varchar_userEmailAdd
+                        </td>
+                        <td>
+                            value=rej.varchar_reviewedBy
+                        </td>
+                        </tr>
+
+                </tbody>
+                </table>
+            </div>
+            </div>
+            
+
+        </div>
+        </div>
+        
+        <!-- /.container-fluid-->
+        <!-- /.content-wrapper-->
+        <footer class="sticky-footer">
+        <div class="container">
+            <div class="text-center">
+            <small>Copyright © Irregular Please 2018</small>
+            </div>
+        </div>
+        </footer>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+        </a>
+        <!-- Bootstrap core JavaScript-->
+        <script src="/adminui/vendor/jquery/jquery.min.js"></script>
+        <script src="/adminui/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="/adminui/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Page level plugin JavaScript-->
+        <script src="/adminui/vendor/chart.js/Chart.min.js"></script>
+        <script src="/adminui/vendor/datatables/jquery.dataTables.js"></script>
+        <script src="/adminui/vendor/datatables/dataTables.bootstrap4.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="/adminui/js/sb-admin.min.js"></script>
+        <!-- Custom scripts for this page-->
+        <script src="/adminui/js/sb-admin-datatables.min.js"></script>
+        <script src="/adminui/js/sb-admin-charts.min.js"></script>
+    </div>
+    </body>

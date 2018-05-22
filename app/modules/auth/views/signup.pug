@@ -1,0 +1,130 @@
+extends ../../../templates/master.pug
+
+block body
+    //--Stylesheets, scripts, etc..--//
+    <link href="/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/jquery/jquery-3.2.1.slim.min.js"></script>
+    <script src="/assets/popper/popper.min.js"></script>
+
+    link(rel="stylesheet" href="/stylesheets/home.css")
+    link(rel="stylesheet" href="/stylesheets/homemodal.css")
+    link(rel="stylesheet" href="/stylesheets/signup.css")
+    <link href="/homepage/css/googlefonts.css" rel="stylesheet">
+    <link href="/homepage/css/style.css" rel="stylesheet">
+    
+    <script src="/homepage/lib/jquery/jquery.min.js"></script>
+    <script src="/homepage/lib/jquery/jquery-migrate.min.js"></script>
+    <script src="/homepage/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/homepage/lib/easing/easing.min.js"></script>
+    <script src="/homepage/lib/wow/wow.min.js"></script>
+
+    <script src="/homepage/lib/waypoints/waypoints.min.js"></script>
+    <script src="/homepage/lib/counterup/counterup.min.js"></script>
+    <script src="/homepage/lib/superfish/hoverIntent.js"></script>
+    <script src="/homepage/lib/superfish/superfish.min.js"></script>
+
+    //- <!-- Template Main Javascript File -->
+    <script src="/homepage/js/main.js"></script>
+
+    //--Navigation Bar
+    <div id="navbar">
+    <nav id="nav-menu-container">
+            <ul class="nav-menu">
+            <div id="logo" class="pull-left">
+                <a href="/home" id ="homelogo"><img src="/homepage/img/logo.jpeg" alt="logo" title="Logo" style="border-radius:50%;height:5%;width:5.5%;" /></img>  Irregular Please</a>
+            </div>
+            <li style="color:transparent;">Hidden1</li>
+            <li style="color:transparent;">Hidden1</li>
+            <li style="color:transparent;">Hidden1</li>
+            <li style="color:transparent;">Hidden1</li>
+            <li style="color:transparent;">Hidden1</li>
+            <li class="menu-active"><a href="/home">Home</a></li>
+            <li><a href="/signup">Signup</a></li>
+            <li></li>
+            <li></li>
+            <li style="color:transparent;">Hidden2</li>
+            </ul>
+    </nav><!-- #nav-menu-container -->
+    </div>
+
+    //----- Modal
+    <div class="container" id="modalLogin">
+            <div class="modal hide" id="myModal">
+            <div class="modal-header">
+                <img rel="image" src="/icons/login.png" style="width:40px;height:40px;">&nbsp;
+                <h3 style="color:black;">Login</h3>
+                <button type="button" class="close" data-dismiss="modal">x</button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action='home' name="login_form">
+                    <div class="form-group">
+                    <p>&nbsp;<i class="fa fa-id-card fa-2x" aria-hidden="true" ></i>&nbsp;&nbsp;<input type="text" name="user_studno" id="modalstudno" class="form-control float-right col-md-10" placeholder="Student No(ex:2015-12345-MN-1)" required></p>
+                    </div>
+                    <p>&nbsp;&nbsp; <i class="fa fa-unlock-alt fa-2x" aria-hidden="true"></i>&nbsp; &nbsp;<input type="password" name="user_password" id="modalemail" class="form-control float-right col-md-10" placeholder="Password" size=33 required></p>
+                    <p><button type="submit" id="modalbutton" class="btn btn-primary float-right" position="right" style="background-color:#B22222;color:whitesmoke;border:none;">Sign in</button></p>
+                </form>
+            </br>
+            </br>
+            </div>
+            <div class="modal-footer float-right">Don't have an account yet? <a href="/signup" class="Register" style="color:#B22222;"> Register</a>
+            </div>
+            </div>
+    </div>
+        //---- Registration Form
+        <div id="regiform" class="container wow fadeInUp">
+        <h2> Registration Form</h2>
+        <div class="col-lg-12 well">
+        <div class="row">
+                    <form method="POST" action="/signup">
+                        <div class="col-sm-12">
+                            <div class="row">
+                                <div class="col-sm-8 form-group" >
+                                    <label style="font-size:18;">*Student Number</label>
+                                    <input type="text" placeholder="" class="form-control" name="user_studno" id="user_studno" pattern="^(20?[0-1][0-7])+-+([0-9][0-9][0-9][0-9][0-9])+-+[M-Nm-n]+-+[0-1]" required>
+                                    <p><small><strong>Please use the student number format (<u>ex: 2007-12345-MN-1)</u></strong></small></p>
+                                </div>
+                                <div class="col-sm-6 form-group" >
+                                    <label style="font-size:18;">*First Name</label>
+                                    <input type="text" placeholder="First Name" class="form-control" name="user_fname" required>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                    <label style="font-size:18;">*Last Name</label>
+                                    <input type="text" placeholder="Last Name" class="form-control" name="user_lname" required>
+                                </div>
+                            </div>					
+                            <div class="form-group">
+                                <label style="font-size:18;">Address</label>
+                                <textarea placeholder="Enter Address Here.." rows="2" class="form-control" name="user_address"></textarea>
+                            <div class="row">
+                                <div class="col-sm-6 form-group">
+                                        <label style="font-size:18;">*Email Address</label>
+                                        <input type="email" placeholder="Email Address" class="form-control" name="user_email" required>
+                                </div>
+                                <div class="col-sm-6 form-group">
+                                        <label style="font-size:18;">*Password</label>
+                                        <input type="password" placeholder="Password" class="form-control"name="user_password" required>
+                                </div>
+                            </div>
+
+                        
+
+                    <button type="submit" id="buttonsignup" class="btn btn btn-info" >Submit</button>					
+                    </div>
+
+                    script.
+                        var input = document.getElementById('user_studno');
+                        input.oninvalid = function(event) {
+                        event.target.setCustomValidity('Please use the student number format(ex: 2000-12345-MN-1)');}
+                        delete ${req.body.user_studno};
+                        
+                    </form> 
+                    </div>
+        </div>
+        </div>
+
+            
+
+
+
+        

@@ -1,0 +1,35 @@
+#background {
+    background-image: url('/pics/search2.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 130%;
+    max-width: 100%;
+    height: 100%;
+}
+
+.blur {
+    -webkit-animation: blur 3s ;
+    -webkit-animation-fill-mode: forwards;
+}
+  
+@-webkit-keyframes blur {
+    0% { -webkit-filter: blur(0px); }
+    100% { -webkit-filter: blur(3px); }
+}
+
+.container{
+    border: 3px solid;
+    padding:8px 20px;
+    border-color:transparent;
+    background-color: black;
+    filter: opacity(73%);
+}
+
+#conta1{
+    margin: auto;
+    margin-top: -43%;;
+    height: 80%;
+    width: 80%;
+    z-index: 10;
+    border-radius: 10px;
+    color: white;
+}

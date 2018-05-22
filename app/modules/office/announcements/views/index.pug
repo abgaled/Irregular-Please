@@ -1,0 +1,121 @@
+extends ../../home/views/navbar.pug
+
+
+block content
+    <link href="/stylesheets/studentannouncements.css" rel="stylesheet">
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+                <div class="container-fluid">
+                    <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-bullhorn"></i><b> Announcements</b>
+                        <button type="button" class="btn btn-outline-primary waves-effect float-right" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-square "></i> Add</button>
+                        </div>
+                    <div class="card-body">
+                        each announcement in tbl_announcement
+                                <div class="card mb-3">
+                                    <div class="card-header">
+                                        <b>
+                                        value=announcement.varchar_announcementTitle
+                                        </b>
+                                    </div>
+                                    <div class="card-body">
+                                        p(style="text-indent:30px;")
+                                            value=announcement.varchar_announcementText
+                                    </div>
+                                        <div class="card-footer small text-muted">created by:
+                                            value=announcement.varchar_announcementCreated
+                                            
+                                        </div>
+                                </div>
+                    </div>
+                    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+                </div>
+        </div>
+        </div>
+        <!-- /.container-fluid-->
+        <!-- /.content-wrapper-->
+        <footer class="sticky-footer">
+        <div class="container">
+            <div class="text-center">
+            <small>Copyright © Irregular Please 2018</small>
+            </div>
+        </div>
+        </footer>
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+        </a>
+        <!-- Bootstrap core JavaScript-->
+        <script src="/adminui/vendor/jquery/jquery.min.js"></script>
+        <script src="/adminui/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="/adminui/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Page level plugin JavaScript-->
+        <script src="/adminui/vendor/chart.js/Chart.min.js"></script>
+        <script src="/adminui/vendor/datatables/jquery.dataTables.js"></script>
+        <script src="/adminui/vendor/datatables/dataTables.bootstrap4.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="/adminui/js/sb-admin.min.js"></script>
+        <!-- Custom scripts for this page-->
+        <script src="/adminui/js/sb-admin-datatables.min.js"></script>
+        <script src="/adminui/js/sb-admin-charts.min.js"></script>
+    </div>
+    </body>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="lineModalLabel">Add Announcement</h3>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                </div>
+                <div class="modal-body">
+                    
+        
+                    <form method="POST" action="announcements" onSubmit="if(!confirm('Are you sure? Please confirm before you proceed.')){return false;}">
+                        input(type="hidden" name="userid" value=`${user.varchar_collegeName}`)
+                        .row
+                        .col-md-9
+                            if alert == 0
+                                .alert.alert-danger(role='alert') <strong> Ooops! </strong> The TITLE you've entered is already used. 
+                            if alert == 1
+                                .alert.alert-success(role='alert')
+                                    strong Yaay!
+                                    |  You have posted your announcement successfully.
+                    .row
+                        <a style="margin-left:60%;">Entry Date:<input type="date" id="theDate" name="date_announcementDate"></a>
+                    <div class="row">
+                    </br>
+                    <div class="form-group col-12">
+                        <label for="editorgcode">Announcement Title</label>
+                        textarea.form-control(rows='2' name="title" required oninvalid="this.setCustomValidity('Set a title for you announcement.')" oninput="setCustomValidity('')")
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="editfname">Announcement Content</label>
+                        textarea.form-control(rows='5' name="post" required oninvalid="this.setCustomValidity('Please say your announcement.')" oninput="setCustomValidity('')")
+                    </div>
+                    </div>
+                    <hr>
+                    <button type="submit" class="btn btn-default float-right" id="buttoneditprofile">Submit</button>
+                    
+                    </form>
+
+                </div>
+                
+            </div>
+
+
+        script.
+            var date = new Date();
+
+            var day = date.getDate();
+            var month = date.getMonth() + 1;
+            var year = date.getFullYear();
+
+            if (month < 10) month = "0" + month;
+            if (day < 10) day = "0" + day;
+
+            var today = year + "-" + month + "-" + day;       
+            document.getElementById("theDate").value = today;
